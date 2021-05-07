@@ -31,17 +31,7 @@ int main() {
     printf("Лишние данные после объявления\n");
     return 0;
   }
-  while (data[konec] != ')') {
-    konec++;
-  }
-  konec = konec + 2;
-  while (data[i] != '\0') {
-    i++;
-  }
-  if (i > konec) {
-    printf("Лишние данные после объявления\n");
-    return 0;
-  }
+  
   while (data[i] == ' ') {
     i++;
   }
