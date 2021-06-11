@@ -16,18 +16,17 @@ int main() {
   char data[MAZSIZE];
   fgets(data, MAZSIZE, fille);
   fputs(data, stdout);
-  char figura[8] = "circle";
-  int i;
-  int konec;
+  char figure	[8] = "circle";
+  int i,end;
   double x, y, R;
-  while (data[konec] != ')') {
-    konec++;
+  while (data[end] != ')') {
+    end++;
   }
-  konec = konec + 2;
+  end = end + 2;
   while (data[i] != '\0') {
     i++;
   }
-  if (i > konec) {
+  if (i > end) {
     printf("Лишние данные после объявления\n");
     return 0;
   }
@@ -35,8 +34,8 @@ int main() {
   while (data[i] == ' ') {
     i++;
   }
-  for (i = 0; figura[i] != '\0'; i++) {
-    if (data[i] != figura[i]) {
+  for (i = 0; figure[i] != '\0'; i++) {
+    if (data[i] != figure[i]) {
       printf("Ошибка:вы имели в виду: circle'?\n");
       exit(0);
     }
