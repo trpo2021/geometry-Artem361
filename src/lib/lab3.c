@@ -1,19 +1,9 @@
-#include <libgeometry/geom.h>
+#include <lib/geom.h>
 
 
 void check(char* data, struct circle* c){
-char file_name[10];
-  FILE *fille;
-  printf("File name:");
-  fgets(file_name, 50, stdin);
-  *strchr(file_name, '\n') = 0;
-  fille = fopen(file_name, "r");
-  if (fille == NULL)
-    printf("нет файла\n");
-    ////////
   char figure	[8] = "circle";
   int i,end;
-  float x, y, R;
   
   
   while (data[end] != ')') {
@@ -25,7 +15,6 @@ char file_name[10];
   }
   if (i > end) {
     printf("Лишние данные после объявления\n");
-    return 0;
   }
   
   while (data[i] == ' ') {
@@ -52,7 +41,7 @@ char file_name[10];
   if (isdigit(data[i])) {
     char *tmp1 = &data[i];
     c->x = strtod(tmp1, &tmp1);
-    printf("Координата x = %f\n", x);
+    printf("Координата x = %f\n", c->x);
     if (*tmp1 != ' ') {
       printf("Ошибка:нет пробела после первой координаты\n");
       exit(0);
@@ -68,7 +57,7 @@ char file_name[10];
   if (isdigit(data[i])) {
     char *tmp2 = &data[i];
     c->y = strtod(tmp2, &tmp2);
-    printf("Координата y = %f\n", y);
+    printf("Координата y = %f\n", c->y);
     if ((*tmp2 != ' ') && (*tmp2 != ',')) {
       printf("Ошибка:нет пробела после второй координаты\n");
       exit(0);
@@ -90,8 +79,8 @@ char file_name[10];
   }
   if (isdigit(data[i])) {
     char *tmp3 = &data[i];
-    c-R= strtod(tmp3, &tmp3);
-    printf("R = %f\n", R);
+    c->R= strtod(tmp3, &tmp3);
+    printf("R = %f\n",c->R);
     if ((*tmp3 != ' ') && (*tmp3 != ')')) {
       printf("Ошибка:нет пробела после радиуса координаты\n");
       exit(0);
@@ -110,14 +99,14 @@ char file_name[10];
 }
 float Squa(struct circle* c){
     const float pi = 3.1415;
-    float s;
+    float squa;
     squa = pi * c->R * c->R;
     return squa;
 }
 
 float Perim(struct circle* c){
     const float pi = 3.1415;
-    float p;
+    float perim;
     perim = 2 * pi * c->R;
     return perim;
 }

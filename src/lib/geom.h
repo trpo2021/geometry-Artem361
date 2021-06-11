@@ -10,7 +10,7 @@ struct circle {
     float x;
     float y;
     float R;
-}
+};
 void check(char* str, struct circle* c);
-float Squ(struct circle* c);
+float Squa(struct circle* c);
 float Perim(struct circle* c);

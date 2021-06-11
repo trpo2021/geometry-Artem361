@@ -1,9 +1,7 @@
-#include <libgeometry/geom.h>
+#include <lib/geom.h>
 
-int main()
-{
+int main(){
 struct circle* c = malloc(sizeof(struct circle));
-int data = 36;
 FILE* input;
 input = fopen("coordinat.txt", "r");
 if (input == NULL) {
@@ -14,7 +12,7 @@ exit(0);
 char data[MAZSIZE];
 fgets(data,MAZSIZE, input);
 fputs(data,stdout);
-parcer(data,c);  
+check(data,c);  
 printf("coordinat x=%f",c->x);
 printf("coordinay y=%f",c->y);
 printf("coordinat R=%f\n",c->R);
